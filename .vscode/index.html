@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulação de dados</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Manipulação de dados</h1>
+      
+            <div class="divInput"> 
+                <input type="file" id="excelFile" accept=".xlsx, .xls" />  
+            </div>
+
+            <button type="submit" onclick="indexImport()">Importar</button>
+        </form>
+        
+        <div id="osResult">
+            <!-- Resultados da importacao de dados do arquivos -->
+        </div>
+    </div> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
