@@ -8,13 +8,16 @@
 </head>
 <body>
     <div class="container">
-        <h1>Manipulação de dados</h1>
+        <form action="">
+            <h1>Manipulação de dados</h1>
       
             <div class="divInput" style="margin-bottom: 6px;"> 
                 <input type="file" id="excelFile" accept=".xlsx, .xls" />  
+                <label for="nome">Digite o nome que deseja buscar</label>
+                <input type="text" id="nome">
             </div>
 
-            <button type="submit" onclick="indexImport()">Importar</button>
+            <button type="submit" onclick="indexImport(event)">Importar</button>
         </form>
         
         <div id="osResult">

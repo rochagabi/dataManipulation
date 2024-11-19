@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-    gap: 2px;
+    gap: 20px;
     display: flex;
     flex-direction: row; 
     justify-content: end;
