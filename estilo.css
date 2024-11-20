@@ -1,22 +1,11 @@
-/* style.css */
+/* CSS atualizado */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background: #2c3e50; /* Nova cor: azul escuro */
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
+ 
 
 .menu-icon {
     font-size: 24px;
@@ -29,12 +18,31 @@ nav {
     left: 0;
     height: 100%;
     width: 250px;
-    background: #34495e; /* Nova cor: cinza azulado */
+    background: #34495e;
     color: white;
     padding: 20px 0;
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
     z-index: 100;
+}
+
+nav.open {
+    transform: translateX(0);
+}
+
+nav .toggle-tab {
+    position: absolute;
+    top: 1%;
+    right: -17px;
+    width: 17px;
+    height: 35px;
+    background: #34495e;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; 
+    border-radius: 0 5px 5px 0;
 }
 
 nav ul {
@@ -53,14 +61,6 @@ nav ul li:hover {
     background: #2c3e50;
 }
 
-nav.hidden {
-    transform: translateX(-100%);
-}
-
-nav.open {
-    transform: translateX(0);
-}
-
 main {
     margin-left: 0;
     padding: 20px;
@@ -76,7 +76,7 @@ section.active {
 }
 
 button {
-    background: #1abc9c; /* Nova cor: verde água */
+    background: #1abc9c;
     color: white;
     border: none;
     padding: 10px 15px;

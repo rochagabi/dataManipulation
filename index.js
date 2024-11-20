@@ -1,5 +1,4 @@
 /* script.js */
-
 // Função para alternar a exibição da barra lateral
 function toggleNavBar() {
     const sidebar = document.getElementById("sidebar");
@@ -45,4 +44,34 @@ function printOS() {
     newWindow.document.write(printContent);
     newWindow.document.close();
     newWindow.print();
+}
+
+document.getElementById("1").addEventListener('click', async () => {
+    debugger
+    await buscar_os()
+})
+ 
+async function buscar_os() {
+    try {
+        const response = await fetch('http://77.37.41.159:4039/api/crud/read', {
+            method: 'POST', // Alterado para POST, pois o body precisa ser enviado
+            headers: {
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoicmVkcGFzcyIsImlhdCI6MTczMjA2MTQyNywiZXhwIjoxNzMyMDY1MDI3fQ.3GRJJyy5cU6Q4ByoQJPyqWzcKaqZ2km7zKWZvfjq0Oo",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "tableName": "ordens_servico"
+            })
+        });
+        debugger
+        if (!response.ok) {
+            throw new Error(`Erro na requisição: ${response.status} ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        console.log("Dados retornados:", data);
+        // Aqui você pode manipular os dados da API (exibir no DOM, armazenar, etc.)
+    } catch (error) {
+        console.error("Erro ao buscar ordens de serviço:", error);
+    }
 }

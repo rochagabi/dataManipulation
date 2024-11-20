@@ -1,30 +1,71 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manipulação de dados</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Ordem de Serviço</title>
+    <link rel="stylesheet" href="estilo.css">
 </head>
-<body>
-    <div class="container">
-        <form action="">
-            <h1>Manipulação de dados</h1>
-      
-            <div class="divInput" style="margin-bottom: 6px;"> 
-                <input type="file" id="excelFile" accept=".xlsx, .xls" />  
-                <label for="nome">Digite o nome que deseja buscar</label>
-                <input type="text" id="nome">
-            </div>
+<body> 
+    <nav id="sidebar" class="hidden">
+        <div class="toggle-tab" onclick="toggleNavBar()">&#9776;</div>
+        <ul>
+            <li onclick="showSection('search')">Buscar OS</li>
+            <li onclick="showSection('details')">Detalhes da OS</li>
+            <li onclick="showSection('about')">Sobre</li>
+        </ul>
+    </nav>
 
-            <button type="submit" onclick="indexImport(event)">Importar</button>
-        </form>
-        
-        <div id="osResult">
-            <!-- Resultados da importacao de dados do arquivos -->
-        </div>
-    </div> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
-    <script src="script.js"></script>
+    <main id="content">
+        <!-- Seção inicial (Busca de OS) -->
+        <section id="search" class="active">
+            <h2>Buscar Ordem de Serviço</h2>
+            <form>
+                <label for="search-id">Buscar por ID:</label>
+                <input type="text" id="search-id" placeholder="Digite o ID da OS">
+                <label for="search-date">Buscar por Data:</label>
+                <input type="date" id="search-date">
+                <label for="search-name">Buscar por Nome:</label>
+                <input type="text" id="search-name" placeholder="Digite o Nome do Cliente">
+                <button type="submit" id="1">Buscar</button>
+            </form>
+        </section>
+
+        <!-- Seção de Detalhes da OS -->
+        <section id="details">
+            <h2>Detalhes da Ordem de Serviço</h2>
+            <div class="os-details">
+                <div class="field">
+                    <label for="identificacao">Identificação:</label>
+                    <input type="text" id="identificacao" value="OS 1021" disabled>
+                </div>
+                <div class="field">
+                    <label for="equipamento">Equipamento:</label>
+                    <input type="text" id="equipamento" value="Notebook Acer">
+                </div>
+                <div class="field">
+                    <label for="defeito">Defeito Informado:</label>
+                    <textarea id="defeito">Não carrega sistema operacional</textarea>
+                </div>
+                <div class="field">
+                    <label for="condicoes">Condições do Equipamento:</label>
+                    <textarea id="condicoes">Marcas de uso – Região das dobradiças quebradas</textarea>
+                </div>
+                <div class="field">
+                    <label for="termos">Termos e Condições:</label>
+                    <textarea id="termos">Estou ciente das informações descritas...</textarea>
+                </div>
+                <button onclick="printOS()">Imprimir OS</button>
+            </div>
+        </section>
+
+        <!-- Seção Sobre -->
+        <section id="about">
+            <h2>Sobre</h2>
+            <p>Esta aplicação foi desenvolvida para facilitar o gerenciamento de ordens de serviço.</p>
+        </section>
+    </main>
+
+    <script src="index.js" type="module"></script>
 </body>
 </html>
