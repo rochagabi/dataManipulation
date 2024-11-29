@@ -1,11 +1,10 @@
-/* CSS atualizado */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
- 
+
 
 .menu-icon {
     font-size: 24px;
@@ -41,7 +40,7 @@ nav .toggle-tab {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer; 
+    cursor: pointer;
     border-radius: 0 5px 5px 0;
 }
 
@@ -67,6 +66,10 @@ main {
     transition: margin-left 0.3s ease-in-out;
 }
 
+.active select {
+    margin-bottom: 10px;
+}
+
 section {
     display: none;
 }
@@ -82,10 +85,21 @@ button {
     padding: 10px 15px;
     cursor: pointer;
     border-radius: 5px;
+    width: auto;
+    /* Garante que o botão não ocupe 100% */
+    display: inline-block;
+    /* Certifica que o botão respeite seu conteúdo */
 }
 
 button:hover {
     background: #16a085;
+}
+
+.details-container button {
+    align-self: flex-start;
+    /* Mantém o botão alinhado à esquerda */
+    width: auto;
+    /* Garante que não expanda para 100% */
 }
 
 .field {
@@ -97,11 +111,53 @@ label {
     margin-bottom: 5px;
 }
 
-input, textarea {
+input,
+textarea {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+textarea {
+    resize: none;
+    height: 80px;
+}
+
+#search-container {
+    display: flex;
+    flex-direction: column;
+    /* Organiza inputs e botão na vertical */
+    gap: 10px;
+    /* Espaçamento fixo entre elementos */
+    align-items: flex-start;
+    /* Alinha os elementos à esquerda */
+    width: 100%;
+    /* Garante que o layout seja consistente */
+}
+
+.details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* Espaçamento vertical entre linhas */
+}
+
+.details-container input,
+.details-container textarea {
+    width: 90%;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+    /* Espaçamento horizontal entre campos */
+}
+
+.field {
+    flex: 1;
+    margin-bottom: 5px;
+    /* Pequeno espaço entre campos em caso de overflow */
 }
 
 textarea {

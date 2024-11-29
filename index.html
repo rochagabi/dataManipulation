@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ordem de Serviço</title>
     <link rel="stylesheet" href="estilo.css">
 </head>
-<body> 
+
+<body>
     <nav id="sidebar" class="hidden">
-        <div class="toggle-tab" onclick="toggleNavBar()">&#9776;</div>
+        <div class="toggle-tab">&#9776;</div>
         <ul>
             <li onclick="showSection('search')">Buscar OS</li>
             <li onclick="showSection('details')">Detalhes da OS</li>
-            <li onclick="showSection('about')">Sobre</li>
+            <li onclick="showSection('novaOS')">Criar nova OS</li>
         </ul>
     </nav>
 
@@ -20,52 +22,138 @@
         <!-- Seção inicial (Busca de OS) -->
         <section id="search" class="active">
             <h2>Buscar Ordem de Serviço</h2>
-            <form>
-                <label for="search-id">Buscar por ID:</label>
-                <input type="text" id="search-id" placeholder="Digite o ID da OS">
-                <label for="search-date">Buscar por Data:</label>
-                <input type="date" id="search-date">
-                <label for="search-name">Buscar por Nome:</label>
-                <input type="text" id="search-name" placeholder="Digite o Nome do Cliente">
+            <p>Selecione o tipo de busca desejada</p>
+            <select name="buscaOS" id="buscaOS">
+                <option value="buscaOS_ID">Buscar por ID</option>
+                <option value="buscaOS_Nome">Buscar por Nome</option>
+                <option value="buscaOS_Data">Buscar por Data</option>
+            </select>
+            <div id="search-container">
+                <input type="number" id="search-id" placeholder="Digite o ID da OS">
                 <button type="submit" id="1">Buscar</button>
-            </form>
+            </div>
         </section>
 
         <!-- Seção de Detalhes da OS -->
         <section id="details">
             <h2>Detalhes da Ordem de Serviço</h2>
-            <div class="os-details">
-                <div class="field">
-                    <label for="identificacao">Identificação:</label>
-                    <input type="text" id="identificacao" value="OS 1021" disabled>
+
+            <div class="details-container">
+                <div class="row">
+                    <div class="field">
+                        <label for="idCliente">Id Cliente:</label>
+                        <input type="number" id="idCliente" value="123456" disabled>
+                    </div>
+                    <div class="field">
+                        <label for="nomeCliente">Nome do(a) Cliente:</label>
+                        <input type="text" id="nomeCliente" value="Maria Silva" disabled>
+                    </div>
                 </div>
-                <div class="field">
-                    <label for="equipamento">Equipamento:</label>
-                    <input type="text" id="equipamento" value="Notebook Acer">
+
+                <div class="row">
+                    <div class="field">
+                        <label for="enderecoCliente">Endereço do(a) Cliente:</label>
+                        <input type="text" id="enderecoCliente" value="Rua das Flores, 123" disabled>
+                    </div>
+                    <div class="field">
+                        <label for="contatoCliente">Contato do(a) Cliente:</label>
+                        <input type="number" id="contatoCliente" value="11 987654321" disabled>
+                    </div>
                 </div>
-                <div class="field">
+
+                <div class="row">
+                    <div class="field">
+                        <label for="numOS">Número da OS:</label>
+                        <input type="number" id="numOS" value="1021" disabled>
+                    </div>
+                    <div class="field">
+                        <label for="dataOS">Data:</label>
+                        <input type="date" id="dataOS" value="2024-11-27" disabled>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="field">
+                        <label for="statusOS">Status:</label>
+                        <input type="text" id="statusOS" value="Aberto" disabled>
+                    </div>
+                    <div class="field">
+                        <label for="equipamento">Equipamento:</label>
+                        <input type="text" id="equipamento" value="Notebook Acer" disabled>
+                    </div>
+                </div>
+                <div class="field full-width">
                     <label for="defeito">Defeito Informado:</label>
-                    <textarea id="defeito">Não carrega sistema operacional</textarea>
+                    <textarea id="defeito" disabled>Não carrega sistema operacional</textarea>
                 </div>
-                <div class="field">
+                <div class="field full-width">
                     <label for="condicoes">Condições do Equipamento:</label>
-                    <textarea id="condicoes">Marcas de uso – Região das dobradiças quebradas</textarea>
+                    <textarea id="condicoes" disabled>Marcas de uso – Região das dobradiças quebradas</textarea>
                 </div>
-                <div class="field">
-                    <label for="termos">Termos e Condições:</label>
-                    <textarea id="termos">Estou ciente das informações descritas...</textarea>
-                </div>
-                <button onclick="printOS()">Imprimir OS</button>
+            </div>
+
+            <button onclick="printOS()">Imprimir OS</button>
+            <br><br>
+            <address>©Infospeedy Informática</address>
             </div>
         </section>
 
-        <!-- Seção Sobre -->
-        <section id="about">
-            <h2>Sobre</h2>
-            <p>Esta aplicação foi desenvolvida para facilitar o gerenciamento de ordens de serviço.</p>
+
+        <section id="novaOS">
+            <h2>Preencha os campos abaixo</h2>
+
+            <div class="details-container">
+                <div class="row">
+                    <div class="field">
+                        <label for="nomeCliente">Nome do(a) Cliente:</label>
+                        <input type="text" id="nomeCliente" value="Maria Silva">
+                    </div>
+                    <div class="field">
+                        <label for="enderecoCliente">Endereço do(a) Cliente:</label>
+                        <input type="text" id="enderecoCliente" value="Rua das Flores, 123">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="field">
+                        <label for="contatoCliente">Contato do(a) Cliente:</label>
+                        <input type="number" id="contatoCliente" value="11 987654321">
+                    </div>
+                    <div class="field">
+                        <label for="equipamento">Equipamento:</label>
+                        <input type="text" id="equipamento" value="Notebook Acer">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="field full-width">
+                        <label for="defeito">Defeito Informado:</label>
+                        <textarea id="defeito">Não carrega sistema operacional</textarea>
+                    </div>
+                    <div class="field full-width">
+                        <label for="condicoes">Condições do Equipamento:</label>
+                        <textarea id="condicoes">Marcas de uso – Região das dobradiças quebradas</textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="field">
+                        <label for="statusOS">Status:</label>
+                        <select name="status" id="statusOS">
+                            <option value="aberto">Aberto</option>
+                            <option value="concluido">Concluído</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                </div>
+                <button onclick="criarOS()">Criar</button>
+            </div>
         </section>
+
+
     </main>
 
-    <script src="index.js" type="module"></script>
+    <script src="index.js"></script>
 </body>
+
 </html>
